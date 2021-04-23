@@ -53,4 +53,5 @@ class RecipesController < ApplicationController
       # including :ingredients => [] is part of being able to include ingredients in json
       params.require(:recipe).permit(:title, :instructions, :ingredients => [])
     end
+
 end
