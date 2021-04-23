@@ -5,12 +5,15 @@ class RecipesController < ApplicationController
   def index
     @recipes = Recipe.all
 
-    render json: @recipes
+    # using include allows us to show the ingredients that belong_to a given recipe
+    render json: @recipes,
+      include: [:ingredients]
   end
 
   # GET /recipes/1
   def show
-    render json: @recipe
+    render json: @recipe,
+    include: [:ingredients]
   end
 
   # POST /recipes
@@ -18,7 +21,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
 
     if @recipe.save
-      render json: @recipe, status: :created, location: @recipe
+      render json: @recipe, include: [:ingredients], status: :created, location: @recipe
     else
       render json: @recipe.errors, status: :unprocessable_entity
     end
@@ -27,7 +30,8 @@ class RecipesController < ApplicationController
   # PATCH/PUT /recipes/1
   def update
     if @recipe.update(recipe_params)
-      render json: @recipe
+      render json: @recipe,
+      include: [:ingredients]
     else
       render json: @recipe.errors, status: :unprocessable_entity
     end
@@ -46,6 +50,7 @@ class RecipesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def recipe_params
-      params.require(:recipe).permit(:title, :instructions)
+      # including :ingredients => [] is part of being able to include ingredients in json
+      params.require(:recipe).permit(:title, :instructions, :ingredients => [])
     end
 end
