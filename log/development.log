@@ -977,3 +977,453 @@ Completed 200 OK in 6ms (Views: 5.8ms | ActiveRecord: 0.3ms | Allocations: 3471)
 Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.1ms | Allocations: 2276)
 
 
+Started GET "/ingredients" for 127.0.0.1 at 2021-04-24 04:29:06 -0500
+Started GET "/recipes" for 127.0.0.1 at 2021-04-24 04:29:06 -0500
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.5ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/ingredients_controller.rb:8:in `index'
+Completed 200 OK in 13ms (Views: 4.7ms | ActiveRecord: 0.8ms | Allocations: 8452)
+
+
+Processing by RecipesController#index as */*
+  [1m[36mRecipe Load (0.4ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 1]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 2]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+Completed 200 OK in 29ms (Views: 21.9ms | ActiveRecord: 1.4ms | Allocations: 9312)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2021-04-24 04:32:00 -0500
+Started GET "/ingredients" for 127.0.0.1 at 2021-04-24 04:32:00 -0500
+Processing by RecipesController#index as */*
+Processing by IngredientsController#index as */*
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  ↳ app/controllers/ingredients_controller.rb:8:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  ↳ app/controllers/ingredients_controller.rb:8:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 2]]
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.4ms | Allocations: 3984)
+
+
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+Completed 200 OK in 11ms (Views: 10.6ms | ActiveRecord: 0.3ms | Allocations: 5388)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2021-04-24 04:34:51 -0500
+Started GET "/ingredients" for 127.0.0.1 at 2021-04-24 04:34:51 -0500
+Processing by RecipesController#index as */*
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+Processing by IngredientsController#index as */*
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 1]]
+  ↳ app/controllers/ingredients_controller.rb:8:in `index'
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.1ms | Allocations: 2240)
+
+
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 2]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+Completed 200 OK in 12ms (Views: 11.4ms | ActiveRecord: 0.3ms | Allocations: 5020)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2021-04-24 04:36:39 -0500
+Started GET "/ingredients" for 127.0.0.1 at 2021-04-24 04:36:39 -0500
+Processing by RecipesController#index as */*
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 1]]
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  ↳ app/controllers/ingredients_controller.rb:8:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 2]]
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.1ms | Allocations: 2682)
+
+
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+Completed 200 OK in 11ms (Views: 10.7ms | ActiveRecord: 0.3ms | Allocations: 5026)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2021-04-24 04:39:59 -0500
+Started GET "/ingredients" for 127.0.0.1 at 2021-04-24 04:39:59 -0500
+Processing by RecipesController#index as */*
+Processing by IngredientsController#index as */*
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  ↳ app/controllers/ingredients_controller.rb:8:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 1]]
+Completed 200 OK in 4ms (Views: 4.0ms | ActiveRecord: 0.1ms | Allocations: 2180)
+
+
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 2]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.3ms | Allocations: 4822)
+
+
+Started GET "/ingredients" for 127.0.0.1 at 2021-04-24 04:41:13 -0500
+Started GET "/recipes" for 127.0.0.1 at 2021-04-24 04:41:13 -0500
+Processing by IngredientsController#index as */*
+Processing by RecipesController#index as */*
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/ingredients_controller.rb:8:in `index'
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.4ms | Allocations: 2036)
+
+
+  [1m[36mIngredient Load (0.7ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 1]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 2]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+Completed 200 OK in 11ms (Views: 9.5ms | ActiveRecord: 0.9ms | Allocations: 4677)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2021-04-24 05:06:40 -0500
+Started GET "/ingredients" for 127.0.0.1 at 2021-04-24 05:06:40 -0500
+Processing by RecipesController#index as */*
+Processing by IngredientsController#index as */*
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  ↳ app/controllers/ingredients_controller.rb:8:in `index'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mIngredient Load (0.6ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  ↳ app/controllers/ingredients_controller.rb:8:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 1]]
+Completed 200 OK in 7ms (Views: 5.9ms | ActiveRecord: 0.7ms | Allocations: 3313)
+
+
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 2]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+Completed 200 OK in 11ms (Views: 11.1ms | ActiveRecord: 0.6ms | Allocations: 6000)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2021-04-24 05:07:05 -0500
+Started GET "/ingredients" for 127.0.0.1 at 2021-04-24 05:07:05 -0500
+Processing by RecipesController#index as */*
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 1]]
+  ↳ app/controllers/ingredients_controller.rb:8:in `index'
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.1ms | Allocations: 2232)
+
+
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 2]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+Completed 200 OK in 28ms (Views: 27.6ms | ActiveRecord: 0.3ms | Allocations: 5001)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2021-04-24 05:10:33 -0500
+Started GET "/ingredients" for 127.0.0.1 at 2021-04-24 05:10:33 -0500
+Processing by RecipesController#index as */*
+Processing by IngredientsController#index as */*
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  ↳ app/controllers/ingredients_controller.rb:8:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 1]]
+Completed 200 OK in 3ms (Views: 2.8ms | ActiveRecord: 0.1ms | Allocations: 2180)
+
+
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 2]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 0.4ms | Allocations: 4826)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2021-04-24 05:19:26 -0500
+Started GET "/ingredients" for 127.0.0.1 at 2021-04-24 05:19:26 -0500
+Processing by RecipesController#index as */*
+Processing by IngredientsController#index as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  ↳ app/controllers/ingredients_controller.rb:8:in `index'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  ↳ app/controllers/ingredients_controller.rb:8:in `index'
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 1]]
+Completed 200 OK in 5ms (Views: 4.9ms | ActiveRecord: 0.3ms | Allocations: 3309)
+
+
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 2]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+Completed 200 OK in 10ms (Views: 9.8ms | ActiveRecord: 0.7ms | Allocations: 6174)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2021-04-24 05:23:17 -0500
+Started GET "/ingredients" for 127.0.0.1 at 2021-04-24 05:23:17 -0500
+Processing by RecipesController#index as */*
+Processing by IngredientsController#index as */*
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  ↳ app/controllers/ingredients_controller.rb:8:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 1]]
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.1ms | Allocations: 2180)
+
+
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 2]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.3ms | Allocations: 4826)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2021-04-24 05:24:49 -0500
+Started GET "/ingredients" for 127.0.0.1 at 2021-04-24 05:24:49 -0500
+Processing by RecipesController#index as */*
+Processing by IngredientsController#index as */*
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/ingredients_controller.rb:8:in `index'
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.1ms | Allocations: 1868)
+
+
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 1]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 2]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+Completed 200 OK in 6ms (Views: 5.6ms | ActiveRecord: 0.3ms | Allocations: 4826)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2021-04-24 12:44:58 -0500
+Started GET "/ingredients" for 127.0.0.1 at 2021-04-24 12:44:58 -0500
+Processing by RecipesController#index as */*
+Processing by IngredientsController#index as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  ↳ app/controllers/ingredients_controller.rb:8:in `index'
+  [1m[36mRecipe Load (2.8ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients"[0m
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  ↳ app/controllers/ingredients_controller.rb:8:in `index'
+  [1m[36mIngredient Load (0.4ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 1]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+Completed 200 OK in 26ms (Views: 25.5ms | ActiveRecord: 1.0ms | Allocations: 3308)
+
+
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 2]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+Completed 200 OK in 50ms (Views: 47.7ms | ActiveRecord: 5.4ms | Allocations: 5995)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2021-04-24 12:57:08 -0500
+Processing by RecipesController#index as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 1]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 2]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+Completed 200 OK in 14ms (Views: 14.2ms | ActiveRecord: 0.8ms | Allocations: 3692)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2021-04-24 12:59:44 -0500
+Processing by RecipesController#index as */*
+  [1m[36mRecipe Load (0.5ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 1]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 2]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+Completed 200 OK in 13ms (Views: 12.5ms | ActiveRecord: 0.8ms | Allocations: 3098)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2021-04-24 13:19:53 -0500
+Processing by RecipesController#index as */*
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 1]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 2]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+Completed 200 OK in 11ms (Views: 11.2ms | ActiveRecord: 0.6ms | Allocations: 3692)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2021-04-24 13:23:38 -0500
+Processing by RecipesController#index as */*
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 1]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 2]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+Completed 200 OK in 39ms (Views: 38.7ms | ActiveRecord: 0.4ms | Allocations: 3098)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2021-04-24 13:23:54 -0500
+Processing by RecipesController#index as */*
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 1]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 2]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.4ms | Allocations: 3097)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2021-04-24 13:33:55 -0500
+Processing by RecipesController#index as */*
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 1]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 2]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.5ms | Allocations: 3691)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2021-04-24 13:34:50 -0500
+Processing by RecipesController#index as */*
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 1]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 2]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+Completed 200 OK in 4ms (Views: 3.7ms | ActiveRecord: 0.3ms | Allocations: 3097)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2021-04-24 13:40:35 -0500
+Processing by RecipesController#index as */*
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 1]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 2]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+Completed 200 OK in 5ms (Views: 4.8ms | ActiveRecord: 0.6ms | Allocations: 3691)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2021-04-24 13:45:55 -0500
+Processing by RecipesController#index as */*
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 1]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 2]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 0.3ms | Allocations: 3097)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2021-04-24 13:55:48 -0500
+Processing by RecipesController#index as HTML
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 1]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 2]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+Completed 200 OK in 5ms (Views: 4.9ms | ActiveRecord: 0.6ms | Allocations: 3688)
+
+
+Started GET "/favicon.ico" for 127.0.0.1 at 2021-04-24 13:55:48 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/recipes" for 127.0.0.1 at 2021-04-24 13:56:04 -0500
+Processing by RecipesController#index as HTML
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 1]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 2]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+Completed 200 OK in 5ms (Views: 4.5ms | ActiveRecord: 0.3ms | Allocations: 3306)
+
+
+Started GET "/rails_routes" for 127.0.0.1 at 2021-04-24 13:56:21 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/rails_routes"):
+  
+Started GET "/routes" for 127.0.0.1 at 2021-04-24 13:56:52 -0500
+  
+ActionController::RoutingError (No route matches [GET] "/routes"):
+  
+Started GET "/recipes" for 127.0.0.1 at 2021-04-24 14:06:51 -0500
+Processing by RecipesController#index as */*
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 1]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 2]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.5ms | Allocations: 3703)
+
+
+Started DELETE "/recipes/2" for 127.0.0.1 at 2021-04-24 14:06:54 -0500
+Processing by RecipesController#destroy as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:48:in `set_recipe'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recipes_controller.rb:42:in `destroy'
+  [1m[36mRecipe Destroy (0.4ms)[0m  [1m[31mDELETE FROM "recipes" WHERE "recipes"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/recipes_controller.rb:42:in `destroy'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recipes_controller.rb:42:in `destroy'
+Completed 204 No Content in 4ms (ActiveRecord: 1.3ms | Allocations: 1915)
+
+
+Started DELETE "/recipes/2" for 127.0.0.1 at 2021-04-24 14:06:58 -0500
+Processing by RecipesController#destroy as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:48:in `set_recipe'
+Completed 404 Not Found in 1ms (ActiveRecord: 0.1ms | Allocations: 486)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Recipe with 'id'=2):
+  
+app/controllers/recipes_controller.rb:48:in `set_recipe'
+Started GET "/recipes" for 127.0.0.1 at 2021-04-24 14:07:03 -0500
+Processing by RecipesController#index as */*
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 1]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.2ms | Allocations: 2289)
+
+
+Started GET "/recipes" for 127.0.0.1 at 2021-04-24 14:07:05 -0500
+Processing by RecipesController#index as */*
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" WHERE "ingredients"."recipe_id" = ?[0m  [["recipe_id", 1]]
+  ↳ app/controllers/recipes_controller.rb:9:in `index'
+Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.2ms | Allocations: 2290)
+
+
