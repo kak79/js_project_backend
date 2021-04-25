@@ -84,3 +84,66 @@ Ingredient.create(
     }
   ]
 )
+
+
+
+
+Recipe.create(
+  [
+    {
+      title: 'Fast Iced Tea',
+      instructions: 'Boil 1 qt water and pour over tea bags into jar.  Wait 5 minutes.  Fill up your gallon pitcher half way with ice.  Pour over ice into pitcher and fill to top with cold water.  You can leave in the tea bags or throw them away.'
+    }
+  ]
+)
+
+Ingredient.create(
+  [
+    {
+      name: 'Tea Bags',
+      measurement: '5',
+      recipe_id: '2'
+    }
+  ]
+)
+
+Ingredient.create(
+  [
+    {
+      name: 'Water',
+      measurement: '1 Gallon',
+      recipe_id: '2'
+    }
+  ]
+)
+
+Ingredient.create(
+  [
+    {
+      name: 'Ice',
+      measurement: '1/2 Gallon',
+      recipe_id: '2'
+    }
+  ]
+)
+
+Ingredient.create(
+  [
+    {
+      name: 'Gallon Pitcher',
+      measurement: '1',
+      recipe_id: '2'
+    }
+  ]
+)
+
+Ingredient.create(
+  [
+    {
+      name: 'Quart Jar',
+      measurement: '1',
+      recipe_id: '2'
+    }
+  ]
+)
+
