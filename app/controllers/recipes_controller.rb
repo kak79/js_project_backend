@@ -7,7 +7,7 @@ class RecipesController < ApplicationController
 
     # using include allows us to show the ingredients that belong_to a given recipe
     render json: @recipes,
-      include: [:ingredients]
+      include: [:ingredients], except: [:created_at, :updated_at]
   end
 
   # GET /recipes/1
@@ -50,7 +50,7 @@ class RecipesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def recipe_params
-      # including :ingredients => [] is part of being able to include ingredients in json
-      params.require(:recipe).permit(:title, :instructions, :ingredients => [])
+      
+      params.require(:recipe).permit(:title, :instructions, :ingredients_attributes => [])
     end
 end

@@ -20,7 +20,7 @@ Ingredient.create(
     {
       name: 'Iceburg Lettuce',
       measurement: '1 head',
-      recipe_id: '1'
+      recipe_ids: '1'
     }
   ]
 )
@@ -30,7 +30,7 @@ Ingredient.create(
     {
       name: 'Romaine Lettuce',
       measurement: '1 Bunch',
-      recipe_id: '1'
+      recipe_ids: '1'
     }
   ]
 )
@@ -40,7 +40,7 @@ Ingredient.create(
     {
       name: 'Fresh Baby Spinach',
       measurement: '1 Bunch',
-      recipe_id: '1'
+      recipe_ids: '1'
     }
   ]
 )
@@ -50,7 +50,7 @@ Ingredient.create(
     {
       name: 'Cucumber',
       measurement: '1',
-      recipe_id: '1'
+      recipe_ids: '1'
     }
   ]
 )
@@ -60,7 +60,7 @@ Ingredient.create(
     {
       name: 'Radish',
       measurement: '1 bunch',
-      recipe_id: '1'
+      recipe_ids: '1'
     }
   ]
 )
@@ -70,7 +70,7 @@ Ingredient.create(
     {
       name: 'Grape Tomatoes',
       measurement: '1 container',
-      recipe_id: '1'
+      recipe_ids: '1'
     }
   ]
 )
@@ -80,7 +80,7 @@ Ingredient.create(
     {
       name: 'Dressing',
       measurement: 'Variable',
-      recipe_id: '1'
+      recipe_ids: '1'
     }
   ]
 )
@@ -102,7 +102,7 @@ Ingredient.create(
     {
       name: 'Tea Bags',
       measurement: '5',
-      recipe_id: '2'
+      recipe_ids: '2'
     }
   ]
 )
@@ -112,7 +112,7 @@ Ingredient.create(
     {
       name: 'Water',
       measurement: '1 Gallon',
-      recipe_id: '2'
+      recipe_ids: '2'
     }
   ]
 )
@@ -122,7 +122,7 @@ Ingredient.create(
     {
       name: 'Ice',
       measurement: '1/2 Gallon',
-      recipe_id: '2'
+      recipe_ids: '2'
     }
   ]
 )
@@ -132,7 +132,7 @@ Ingredient.create(
     {
       name: 'Gallon Pitcher',
       measurement: '1',
-      recipe_id: '2'
+      recipe_ids: '2'
     }
   ]
 )
@@ -142,7 +142,7 @@ Ingredient.create(
     {
       name: 'Quart Jar',
       measurement: '1',
-      recipe_id: '2'
+      recipe_ids: '2'
     }
   ]
 )
