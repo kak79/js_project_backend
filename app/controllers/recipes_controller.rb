@@ -13,7 +13,7 @@ class RecipesController < ApplicationController
   # GET /recipes/1
   def show
     render json: @recipe,
-    include: [:ingredients]
+    include: [:ingredients], except: [:created_at, :updated_at]  
   end
 
   # POST /recipes
@@ -29,9 +29,21 @@ class RecipesController < ApplicationController
 
   # PATCH/PUT /recipes/1
   def update
-    if @recipe.update(recipe_params)
-      render json: @recipe,
-      include: [:ingredients]
+    # binding.pry
+    # find recipe id in db and save to var
+    recID = Recipe.find(params[:id].to_i)
+    # access ingredients through recipe id variable
+    @ingredient = Ingredient.create(name: params[:ingredients_attributes][:name])
+    @ingredient.measurement = params[:ingredients_attributes][:measurement]
+    @ingredient.save
+    recID.ingredients
+    recID.ingredients << @ingredient
+    # << ingredient into ingredients [] 
+    # save recipe.id.ingredients
+    # if true everything after if line will work
+    if recID.save
+      render json: recID,
+      include: [:ingredients], except: [:created_at, :updated_at]  
     else
       render json: @recipe.errors, status: :unprocessable_entity
     end
@@ -51,6 +63,6 @@ class RecipesController < ApplicationController
     # Only allow a list of trusted parameters through.
     def recipe_params
       
-      params.require(:recipe).permit(:title, :instructions, :ingredients_attributes => [])
+      params.require(:recipe).permit(:id, :title, :instructions, :ingredients_attributes => [])
     end
 end
