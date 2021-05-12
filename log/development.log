@@ -37774,3 +37774,120 @@ Migrating to CreateRecipeIngredients (20210503221534)
   [1m[36mIngredient Create (0.2ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "measurement", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["name", "Quart Jar"], ["measurement", "1"], ["created_at", "2021-05-11 22:39:39.131954"], ["updated_at", "2021-05-11 22:39:39.131954"]]
   [1m[36mRecipeIngredient Create (0.1ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("recipe_id", "ingredient_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["recipe_id", 2], ["ingredient_id", 12], ["created_at", "2021-05-11 22:39:39.134539"], ["updated_at", "2021-05-11 22:39:39.134539"]]
   [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/recipes" for 127.0.0.1 at 2021-05-11 17:42:35 -0500
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RecipesController#index as */*
+  [1m[36mRecipe Load (0.6ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes"[0m
+  ↳ app/controllers/recipes_controller.rb:7:in `index'
+  [1m[36mIngredient Load (0.9ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = ?[0m  [["recipe_id", 1]]
+  ↳ app/controllers/recipes_controller.rb:7:in `index'
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = ?[0m  [["recipe_id", 2]]
+  ↳ app/controllers/recipes_controller.rb:7:in `index'
+Completed 200 OK in 85ms (Views: 69.2ms | ActiveRecord: 2.9ms | Allocations: 20022)
+
+
+Started PATCH "/recipes/1" for 127.0.0.1 at 2021-05-11 17:44:20 -0500
+Processing by RecipesController#update as JSON
+  Parameters: {"id"=>"1", "ingredients_attributes"=>{"name"=>"Boiled Egg", "measurement"=>"5"}, "recipe"=>{"id"=>"1"}}
+  [1m[36mRecipe Load (0.2ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:47:in `set_recipe'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:27:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recipes_controller.rb:28:in `update'
+  [1m[36mIngredient Create (1.3ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "Boiled Egg"], ["created_at", "2021-05-11 22:44:20.116725"], ["updated_at", "2021-05-11 22:44:20.116725"]]
+  ↳ app/controllers/recipes_controller.rb:28:in `update'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recipes_controller.rb:28:in `update'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recipes_controller.rb:30:in `update'
+  [1m[36mIngredient Update (0.3ms)[0m  [1m[33mUPDATE "ingredients" SET "measurement" = ?, "updated_at" = ? WHERE "ingredients"."id" = ?[0m  [["measurement", "5"], ["updated_at", "2021-05-11 22:44:20.121968"], ["id", 13]]
+  ↳ app/controllers/recipes_controller.rb:30:in `update'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recipes_controller.rb:30:in `update'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recipes_controller.rb:32:in `update'
+  [1m[36mRecipeIngredient Create (0.4ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("recipe_id", "ingredient_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["recipe_id", 1], ["ingredient_id", 13], ["created_at", "2021-05-11 22:44:20.137806"], ["updated_at", "2021-05-11 22:44:20.137806"]]
+  ↳ app/controllers/recipes_controller.rb:32:in `update'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recipes_controller.rb:32:in `update'
+  [1m[36mIngredient Load (0.2ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = ?[0m  [["recipe_id", 1]]
+  ↳ app/controllers/recipes_controller.rb:34:in `update'
+Completed 200 OK in 30ms (Views: 2.4ms | ActiveRecord: 4.7ms | Allocations: 12911)
+
+
+Started POST "/recipes" for 127.0.0.1 at 2021-05-11 17:45:01 -0500
+Processing by RecipesController#create as JSON
+  Parameters: {"title"=>"Test_1", "instructions"=>"1\n2\n3\n4\n5\n6\n7\n8\n9", "recipe"=>{"title"=>"Test_1", "instructions"=>"1\n2\n3\n4\n5\n6\n7\n8\n9"}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recipes_controller.rb:19:in `create'
+  [1m[36mRecipe Create (0.4ms)[0m  [1m[32mINSERT INTO "recipes" ("title", "instructions", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Test_1"], ["instructions", "1\n2\n3\n4\n5\n6\n7\n8\n9"], ["created_at", "2021-05-11 22:45:01.672414"], ["updated_at", "2021-05-11 22:45:01.672414"]]
+  ↳ app/controllers/recipes_controller.rb:19:in `create'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recipes_controller.rb:19:in `create'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = ?[0m  [["recipe_id", 3]]
+  ↳ app/controllers/recipes_controller.rb:20:in `create'
+Completed 201 Created in 7ms (Views: 3.6ms | ActiveRecord: 1.2ms | Allocations: 2835)
+
+
+Started PATCH "/recipes/3" for 127.0.0.1 at 2021-05-11 17:45:22 -0500
+Processing by RecipesController#update as JSON
+  Parameters: {"id"=>"3", "ingredients_attributes"=>{"name"=>"peaches", "measurement"=>"2"}, "recipe"=>{"id"=>"3"}}
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:47:in `set_recipe'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:27:in `update'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recipes_controller.rb:28:in `update'
+  [1m[36mIngredient Create (1.0ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "peaches"], ["created_at", "2021-05-11 22:45:22.468480"], ["updated_at", "2021-05-11 22:45:22.468480"]]
+  ↳ app/controllers/recipes_controller.rb:28:in `update'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recipes_controller.rb:28:in `update'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recipes_controller.rb:30:in `update'
+  [1m[36mIngredient Update (0.3ms)[0m  [1m[33mUPDATE "ingredients" SET "measurement" = ?, "updated_at" = ? WHERE "ingredients"."id" = ?[0m  [["measurement", "2"], ["updated_at", "2021-05-11 22:45:22.473258"], ["id", 14]]
+  ↳ app/controllers/recipes_controller.rb:30:in `update'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recipes_controller.rb:30:in `update'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recipes_controller.rb:32:in `update'
+  [1m[36mRecipeIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("recipe_id", "ingredient_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["recipe_id", 3], ["ingredient_id", 14], ["created_at", "2021-05-11 22:45:22.479198"], ["updated_at", "2021-05-11 22:45:22.479198"]]
+  ↳ app/controllers/recipes_controller.rb:32:in `update'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recipes_controller.rb:32:in `update'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = ?[0m  [["recipe_id", 3]]
+  ↳ app/controllers/recipes_controller.rb:34:in `update'
+Completed 200 OK in 22ms (Views: 2.3ms | ActiveRecord: 5.0ms | Allocations: 7404)
+
+
+Started PATCH "/recipes/3" for 127.0.0.1 at 2021-05-11 17:45:46 -0500
+Processing by RecipesController#update as JSON
+  Parameters: {"id"=>"3", "ingredients_attributes"=>{"name"=>"test", "measurement"=>"15"}, "recipe"=>{"id"=>"3"}}
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:47:in `set_recipe'
+  [1m[36mRecipe Load (0.1ms)[0m  [1m[34mSELECT "recipes".* FROM "recipes" WHERE "recipes"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/recipes_controller.rb:27:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recipes_controller.rb:28:in `update'
+  [1m[36mIngredient Create (0.4ms)[0m  [1m[32mINSERT INTO "ingredients" ("name", "created_at", "updated_at") VALUES (?, ?, ?)[0m  [["name", "test"], ["created_at", "2021-05-11 22:45:46.962080"], ["updated_at", "2021-05-11 22:45:46.962080"]]
+  ↳ app/controllers/recipes_controller.rb:28:in `update'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recipes_controller.rb:28:in `update'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recipes_controller.rb:30:in `update'
+  [1m[36mIngredient Update (0.4ms)[0m  [1m[33mUPDATE "ingredients" SET "measurement" = ?, "updated_at" = ? WHERE "ingredients"."id" = ?[0m  [["measurement", "15"], ["updated_at", "2021-05-11 22:45:46.967610"], ["id", 15]]
+  ↳ app/controllers/recipes_controller.rb:30:in `update'
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recipes_controller.rb:30:in `update'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/recipes_controller.rb:32:in `update'
+  [1m[36mRecipeIngredient Create (0.3ms)[0m  [1m[32mINSERT INTO "recipe_ingredients" ("recipe_id", "ingredient_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["recipe_id", 3], ["ingredient_id", 15], ["created_at", "2021-05-11 22:45:46.973169"], ["updated_at", "2021-05-11 22:45:46.973169"]]
+  ↳ app/controllers/recipes_controller.rb:32:in `update'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/recipes_controller.rb:32:in `update'
+  [1m[36mIngredient Load (0.1ms)[0m  [1m[34mSELECT "ingredients".* FROM "ingredients" INNER JOIN "recipe_ingredients" ON "ingredients"."id" = "recipe_ingredients"."ingredient_id" WHERE "recipe_ingredients"."recipe_id" = ?[0m  [["recipe_id", 3]]
+  ↳ app/controllers/recipes_controller.rb:34:in `update'
+Completed 200 OK in 19ms (Views: 2.2ms | ActiveRecord: 3.9ms | Allocations: 7522)
+
+
