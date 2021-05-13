@@ -2,9 +2,9 @@ class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :update, :destroy]
 
   def index
-    @recipes = Recipe.all
+    recipes = Recipe.all
 
-    render json: @recipes,
+    render json: recipes,
       include: [:ingredients], except: [:created_at, :updated_at]
   end
 
@@ -14,12 +14,12 @@ class RecipesController < ApplicationController
   end
 
   def create
-    @recipe = Recipe.new(recipe_params)
+    recipe = Recipe.new(recipe_params)
     
-    if @recipe.save
-      render json: @recipe, include: [:ingredients], status: :created, location: @recipe
+    if recipe.save
+      render json: recipe, include: [:ingredients], status: :created, location: recipe
     else
-      render json: @recipe.errors, status: :unprocessable_entity
+      render json: recipe.errors, status: :unprocessable_entity
     end
   end
 
